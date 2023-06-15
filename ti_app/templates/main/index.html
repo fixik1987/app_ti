@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Main Page {% endblock %}
+
+{% block body_content %}
+    <div class="feature">
+        <h1>{{title}}</h1>
+        <h1>{{id}}</h1>
+        <p>
+            {% filter lower %}
+            You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+            {% endfilter %}
+        </p>
+        <button class="btn btn-warning">{% filter upper %}On page "About us"{% endfilter %}</button>
+        {% for el in values %}
+        {% if el == 'Hello' %}
+        <p> {{ el }} </p>
+        {% endif %}
+        {% endfor %}
+
+        <p> {{ obj.color }} </p>
+
+        {% for el in obj %}
+        <p> {{ el }} </p>
+        {% endfor %}
+    </div>
+
+{% endblock %}

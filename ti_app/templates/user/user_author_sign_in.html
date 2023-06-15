@@ -1,0 +1,24 @@
+{% extends 'user/user_author_layout.html' %}
+
+{% block title %}author_sign_in{% endblock %}
+
+{% block ul %}
+<a href="{% url 'user_author_login' %}">
+    <li>
+        <button class="btn btn-info"><i class="fas fa-plus-circle"></i> Login</button>
+    </li>
+</a>
+{% endblock %}
+
+{% block body_content %}
+<div class="feature">
+    <h1>Authorization</h1>
+    <form method="post" action="{% url 'user_author_sign_in' %}">
+        {% csrf_token %}
+        <input type="text" placeholder="USER Name" class="form-control" name="name_field"><br>
+        <input type="text" placeholder="USER Password" class="form-control" name="password_field"><br>
+        <button class="btn btn-success" type="submit">Sign IN</button><br>
+        <span>{{ error }}</span><br>
+    </form>
+</div>
+{% endblock %}

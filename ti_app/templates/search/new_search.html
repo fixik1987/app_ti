@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}New search{% endblock %}
+
+{% block body_content %}
+<div class="feature">
+    <h1>New Search</h1>
+    <form method="post" action="{% url 'new_search' %}">
+        {% csrf_token %}
+        <input type="text" placeholder="Manufacturer PN" class="form-control" name="new_search_mpn_field"><br>
+        <button class="btn btn-success" type="submit">New Searching</button><br>
+        <span>{{ error }}</span><br>
+    </form>
+</div>
+{% endblock %}

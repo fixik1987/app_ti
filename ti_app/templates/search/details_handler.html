@@ -1,0 +1,41 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Product Information {% endblock %}
+
+{% block body_content %}
+<div class="feature">
+    <div class="alert alert-warning">
+    <h1>Product Information</h1>
+
+    <p><strong>MPN:</strong> {{ mpn }}</p>
+    <p><strong>Generic Part Number:</strong> {{ generic_part_number }}</p>
+    <p><strong>Buy Now URL:</strong> <a href="{{ BuyNowUrl }}">{{ buy_now_url }}</a></p>
+    <p><strong>Quantity:</strong> {{ quantity }}</p>
+    <p><strong>Description:</strong> {{ description }}</p>
+    <p><strong>Minimum Order Quantity:</strong> {{ minimum_order_quantity }}</p>
+    <p><strong>Standard Pack Quantity:</strong> {{ standard_pack_quantity }}</p>
+    <p><strong>Export Control Classification Number:</strong> {{ export_control_classification_number }}</p>
+    <p><strong>HTS Code:</strong> {{ hts_code }}</p>
+    <p><strong>Pin Count:</strong> {{ pin_count }}</p>
+    <p><strong>Package Type:</strong> {{ package_type }}</p>
+    <p><strong>Package Carrier:</strong> {{ package_carrier }}</p>
+    <p><strong>Custom Reel:</strong> {{ custom_reel }}</p>
+    <p><strong>Life Cycle:</strong> {{ life_cycle }}</p>
+
+    <h2>Pricing Information</h2>
+    <p><strong>currency:</strong> {{ currency }}</p>
+    <table>
+        <tr>
+            <th>Price Break Q-ty</th>
+            <th>Price</th>
+        </tr>
+        {% for item in prices %}
+        <tr>
+            <td>{{ item.priceQTY }}</td>
+            <td>{{ item.price }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</div>
+{% endblock %}
